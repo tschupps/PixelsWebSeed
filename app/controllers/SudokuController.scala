@@ -17,18 +17,20 @@ class SudokuController @Inject()(cc: ControllerComponents) extends AbstractContr
 
   val grid = new Grid(1,1)
   val pixels = Controller(grid,grid)
+
+  val tui = new Tui(pixels)
   val gui = new Gui(pixels)
   gui.visible = true
 
   val gameController = Sudoku.controller
-  def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
+  //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
 
   def sudoku = Action {
-    Ok(tui)
+    Ok(tui.printTui())
   }
 
   def newGrid = Action {
     gameController.createNewGrid
-    Ok(tui)
+    Ok(tui.printTui())
   }
 }
