@@ -5,6 +5,7 @@ import javax.inject._
 import play.api.mvc._
 import de.htwg.se.sudoku.Sudoku
 import de.htwg.se.sudoku.controller.controllerComponent.GameStatus
+import de.htwg.se.pixels.aview.tui.Tui
 
 @Singleton
 class SudokuController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
