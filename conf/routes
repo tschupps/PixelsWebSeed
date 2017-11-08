@@ -5,6 +5,7 @@
 # Controller for Sudoku
 GET     /                           controllers.SudokuController.sudoku
 GET     /new                        controllers.SudokuController.newGrid
+GET     /help                       controllers.PixelController.help
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
