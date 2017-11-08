@@ -3,11 +3,13 @@ package controllers
 import javax.inject._
 
 import play.api.mvc._
-import de.htwg.se.sudoku.Sudoku
-import de.htwg.se.sudoku.controller.controllerComponent.GameStatus
+//import de.htwg.se.sudoku.Sudoku
+//import de.htwg.se.sudoku.controller.controllerComponent.GameStatus
+
 import de.htwg.se.pixels.aview.tui.Tui
 
 import de.htwg.se.pixels.aview.gui.Gui
+import de.htwg.se.pixels.aview.tui.Tui
 import de.htwg.se.pixels.controller.Controller
 import de.htwg.se.pixels.model.impl.Grid
 
@@ -22,7 +24,7 @@ class SudokuController @Inject()(cc: ControllerComponents) extends AbstractContr
   val gui = new Gui(pixels)
   gui.visible = true
 
-  val gameController = Sudoku.controller
+  //val gameController = Sudoku.controller
   //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
 
   def sudoku = Action {
@@ -30,7 +32,7 @@ class SudokuController @Inject()(cc: ControllerComponents) extends AbstractContr
   }
 
   def newGrid = Action {
-    gameController.createNewGrid
+    //gameController.createNewGrid
     Ok(tui.printTui())
   }
 }
