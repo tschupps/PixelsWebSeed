@@ -5,8 +5,8 @@ import javax.inject._
 import play.api.mvc._
 import de.htwg.se.sudoku.Sudoku
 import de.htwg.se.sudoku.controller.controllerComponent.GameStatus
-
 import de.htwg.se.pixels.aview.gui.Gui
+import de.htwg.se.pixels.aview.tui.Tui
 import de.htwg.se.pixels.controller.Controller
 import de.htwg.se.pixels.model.impl.Grid
 
@@ -19,11 +19,13 @@ class SudokuController @Inject()(cc: ControllerComponents) extends AbstractContr
   val gui = new Gui(pixels)
   gui.visible = true
 
+  val tui = new Tui(pixels)
+
   val gameController = Sudoku.controller
-  def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
+  //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
 
   def sudoku = Action {
-    Ok(tui)
+    Ok(tui.printTui())
   }
 
   def newGrid = Action {
