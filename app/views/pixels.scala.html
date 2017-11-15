@@ -5,6 +5,52 @@
     <title>$Title$</title>
 </head>
 <body>
-$END$
+
+
 </body>
 </html>
+
+@(controller:de.htwg.se.pixels.controller.Controller)
+
+@getBlockname(row:Int, column:Int) = @{
+  var blockname = ""
+  val blocksize = controller.gridUser.getCol
+    val rows = controller.gridUser.getRow
+  blockname + "block"
+}
+
+<p>test</p>
+
+@main("HTWG Sudoku") {
+  <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
+  <script type='text/javascript' src='@routes.Assets.versioned("javascripts/sudoku.js")'></script>
+
+  <div class="game">
+    <div class="grid" id=size@{controller.getSize}>
+    @for(row <- 0 until controller.getSize){
+      @for(column <- 0 until controller.getSize){
+        <div class="cellouter @{getBlockname(row, column)}" data-row="@row" data-column="@column">
+          <div class="cellborder" id="@{getCellBorderId(row, column)}">
+          @if(controller.getValue(row,column) != 0) {
+            <div class="cell" id="cell@(row*10+column)">
+              <div>@controller.getValue(row,column)</div>
+            </div>} else {
+            <div class="candidatecell" id="cell@(row*10+column)">
+            @for( candidate <- 1 to controller.getSize) {
+              <div class="candidate" data-row="@row" data-column="@column" data-value="@candidate">
+              @if(controller.isCandidate(row, column,candidate) && controller.isShowCandidates(row, column)) {@candidate} else {&nbsp;}
+              </div>
+
+            }
+            </div>
+          }
+
+          </div>
+        </div>
+      }
+    }
+    </div>
+  </div>
+
+}
+

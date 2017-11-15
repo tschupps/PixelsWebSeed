@@ -29,6 +29,9 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
     Ok(tui.printTui())
   }
 
+  def game = Action {
+    Ok(views.html.pixels(pixels))
+  }
   def help = Action {
 
     //gameController.createNewGrid

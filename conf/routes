@@ -6,6 +6,7 @@
 GET     /                           controllers.SudokuController.sudoku
 GET     /new                        controllers.SudokuController.newGrid
 GET     /help                       controllers.PixelController.help
+GET     /game                       controllers.PixelController.game
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
