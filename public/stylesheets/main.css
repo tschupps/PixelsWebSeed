@@ -2,4 +2,24 @@ body{background-color: lavender; margin: 2em}
 h1{ border-left: 6px solid deepskyblue;
     background-color: lightblue;}
 p{font-size: 1em; font-family: Arial}
+.one{
+    background-color: blue;
+    border-color: black;
+    min-height: 30px;
+    min-width: 30px;
+    width: auto;
+    max-width: 800px;
+}
+.cell {
+    display: inline-block;
+    float:left;
+    border-style: outset;
+    border-width: 0.05em;
+    background-color: #E0E0FF;
+    border-color: #f6f6FF;
+    width: 1.2em;
+    height: 1.2em;
+    margin:0.1em;
+    text-align: center;
+}
 

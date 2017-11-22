@@ -1,18 +1,37 @@
 @(controller:de.htwg.se.pixels.controller.Controller)
 
-@getBlockname() = @{
-  var blockname = ""
-  val blocksize = controller.gridUser.getCol
+@getRow() = @{
     val rows = controller.gridUser.getRow
-  rows
+    rows
 }
 
-<p>test</p>
+@getCol() = @{
+  val cols = controller.gridUser.getCol
+  cols
+}
+
+@getCellBorderId(row:Int, col:Int) =@{
+  row + "" + col
+}
+
+
 
 @main("HTWG Sudoku") {
   <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
   <script type='text/javascript' src='@routes.Assets.versioned("javascripts/sudoku.js")'></script>
 
+  <p>@{getRow()}</p>
+  <p>@{getCol()}</p>
 
-         <p>@{getBlockname()}" </p>
+  <div class="game">
+    <div class="grid" id=size@{getRow()}>
+    @for(row <- 0 until getRow()){
+      @for(column <- 0 until getRow()){
+          <div class="cell" id="@{getCellBorderId(row, column)}"></div>
+      }
+    }
+
+    </div>
+  </div>
+
 }
