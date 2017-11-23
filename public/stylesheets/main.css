@@ -15,11 +15,52 @@ p{font-size: 1em; font-family: Arial}
     float:left;
     border-style: outset;
     border-width: 0.05em;
-    background-color: #E0E0FF;
+    background-color: white;
     border-color: #f6f6FF;
     width: 1.2em;
     height: 1.2em;
     margin:0.1em;
     text-align: center;
 }
+
+.yellowButton{
+    background-color: yellow;
+    width: 5em;
+    height: 2em;
+}
+
+.redButton{
+    background-color: red;
+    width: 5em;
+    height: 2em;
+}
+
+.blackButton{
+    background-color: black;
+    width: 5em;
+    height: 2em;
+}
+
+.blueButton{
+    background-color: blue;
+    width: 5em;
+    height: 2em;
+}
+
+.greenButton{
+    background-color: green;
+    width: 5em;
+    height: 2em;
+}
+
+.whiteButton{
+    background-color: white;
+    width: 5em;
+    height: 2em;
+}
+
+
+
+
+
 
