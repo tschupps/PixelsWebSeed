@@ -21,12 +21,12 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script type='text/javascript' src='@routes.Assets.versioned("javascripts/hello.js")'></script>
 
-  <button class="yellowButton" type="button"></button>
-  <button class="redButton" type="button"></button>
-  <button class="blackButton" type="button"></button>
-  <button class="whiteButton" type="button"></button>
-  <button class="blueButton" type="button"></button>
-  <button class="greenButton" type="button"></button>
+  <button class="yellowButton" type="button">Yellow</button>
+  <button class="redButton" type="button">Red</button>
+  <button class="blackButton" type="button">Black</button>
+  <button class="whiteButton" type="button">White</button>
+  <button class="blueButton" type="button">Blue</button>
+  <button class="greenButton" type="button">Green</button>
   <div class="game">
     <div class="grid" id=size@{getRow()}>
     @for(column <- 1 until getCol()+1){
