@@ -1,5 +1,10 @@
 @(controller:de.htwg.se.pixels.controller.Controller, gameNumber: Int)
 
+
+@newGame() = @{
+    controller.createGrid(gameNumber)
+}
+
 @getRow() = @{
     val rows = controller.gridUser.getRow
     rows
@@ -35,6 +40,7 @@
   <button class="greenButton" type="button">  </button>
   <div class="game">
     <div class="grid" id=size@{getRow()}>
+      @newGame()
     @for(row <- 1 until getRow()+1){
       @for(col <- 1 until getCol()+1){
           <div class="cell" id="@{getCellBorderId(row-1, col-1)}"></div>
