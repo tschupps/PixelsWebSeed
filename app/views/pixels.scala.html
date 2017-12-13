@@ -1,4 +1,4 @@
-@(controller:de.htwg.se.pixels.controller.Controller)
+@(controller:de.htwg.se.pixels.controller.Controller, gameNumber: Int)
 
 @getRow() = @{
     val rows = controller.gridUser.getRow
@@ -21,7 +21,6 @@
 @getRowLabel() = @{
     val rowLabels = controller.gridUser.getRowLabels()
 }
-
 
 @main("HTWG Sudoku") {
   <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
@@ -47,6 +46,8 @@
 
     </div>
   </div>
+
+    <p>@gameNumber</p>
 
     <p>@getColLabel()</p>
     <p>@getRowLabel()</p>

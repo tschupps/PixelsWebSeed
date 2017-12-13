@@ -9,17 +9,17 @@ $(document).ready(function () {
 
     $(".Game1").on("click", function() {
         game = 1
-        window.location.replace("http://localhost:9000/game");
+        window.location.replace("http://localhost:9000/game/" + game);
     });
 
     $(".Game2").on("click", function() {
         game = 2
-        window.location.replace("http://localhost:9000/game");
+        window.location.replace("http://localhost:9000/game/" + game);
     });
 
     $(".Game3").on("click", function() {
         game = 3
-        window.location.replace("http://localhost:9000/game");
+        window.location.replace("http://localhost:9000/game/" + game);
     });
 
     $(".cell").on("click", function() {

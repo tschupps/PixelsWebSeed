@@ -6,7 +6,7 @@
 GET     /                           controllers.PixelController.pixel
 # GET     /new                        controllers.PixelController.newGrid
 GET     /help                       controllers.PixelController.help
-GET     /game                       controllers.PixelController.game
+GET     /game/$id<[0-4]>            controllers.PixelController.game(id: Int)
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count

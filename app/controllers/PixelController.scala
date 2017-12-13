@@ -30,9 +30,10 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
     //Ok("Please select a game")
   }
 
-  def game = Action {
-    Ok(views.html.pixels(pixels))
+  def game(number: Int) = Action {
+    Ok(views.html.pixels(pixels, number))
   }
+
   def help = Action {
     //gameController.createNewGrid
     Ok(views.html.welcome("welcomeTest"))
