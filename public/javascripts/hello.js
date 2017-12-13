@@ -1,3 +1,5 @@
+
+importPackage(de.htwg.se.pixels.controller.Controller);
 var color = "black";
 var game = 1
 
