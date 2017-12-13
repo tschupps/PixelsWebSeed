@@ -1,20 +1,40 @@
 
 importPackage(de.htwg.se.pixels.controller.Controller);
 var color = "black";
+var game = 1
 
-Controller.colourCell(row, col, color)
+if (window.console) {
+  console.log("Welcome to your Play application's JavaScript!");
+}
+
 $(document).ready(function () {
-$(".cell").on("click", function() {
-    $(this).css("background", color);
-});
 
-$(".yellowButton").on("click", function() {
-    color = "yellow"
-});
+    $(".Game1").on("click", function() {
+        game = 1
+        window.location.replace("http://localhost:9000/game");
+    });
 
-$(".redButton").on("click", function() {
-    color = "red"
-});
+    $(".Game2").on("click", function() {
+        game = 2
+        window.location.replace("http://localhost:9000/game");
+    });
+
+    $(".Game3").on("click", function() {
+        game = 3
+        window.location.replace("http://localhost:9000/game");
+    });
+
+    $(".cell").on("click", function() {
+        $(this).css("background", color);
+    });
+
+    $(".yellowButton").on("click", function() {
+        color = "yellow"
+    });
+
+    $(".redButton").on("click", function() {
+        color = "red"
+    });
 
     $(".blackButton").on("click", function() {
         color = "black"

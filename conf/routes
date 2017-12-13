@@ -2,9 +2,9 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Controller for Sudoku
-GET     /                           controllers.SudokuController.sudoku
-GET     /new                        controllers.SudokuController.newGrid
+# Controller for Pixels
+GET     /                           controllers.PixelController.pixel
+# GET     /new                        controllers.PixelController.newGrid
 GET     /help                       controllers.PixelController.help
 GET     /game                       controllers.PixelController.game
 

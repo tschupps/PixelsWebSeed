@@ -14,10 +14,13 @@
   row + "" + col
 }
 
-@colorCell(row:Int, col: Int, color: String) =@{
-  controller.colourCell(row, col, color)
+@getColLabel() = @{
+    val colLabels = controller.gridUser.getColLabels()
 }
 
+@getRowLabel() = @{
+    val rowLabels = controller.gridUser.getRowLabels()
+}
 
 
 @main("HTWG Sudoku") {
@@ -25,12 +28,12 @@
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script type='text/javascript' src='@routes.Assets.versioned("javascripts/hello.js")'></script>
 
-  <button class="yellowButton" type="button"></button>
-  <button class="redButton" type="button"></button>
-  <button class="blackButton" type="button"></button>
-  <button class="whiteButton" type="button"></button>
-  <button class="blueButton" type="button"></button>
-  <button class="greenButton" type="button"></button>
+  <button class="yellowButton" type="button">   </button>
+  <button class="redButton" type="button">   </button>
+  <button class="blackButton" type="button">   </button>
+  <button class="whiteButton" type="button">   </button>
+  <button class="blueButton" type="button">   </button>
+  <button class="greenButton" type="button">  </button>
   <div class="game">
     <div class="grid" id=size@{getRow()}>
     @for(row <- 1 until getRow()+1){
@@ -44,5 +47,8 @@
 
     </div>
   </div>
+
+    <p>@getColLabel()</p>
+    <p>@getRowLabel()</p>
 
 }

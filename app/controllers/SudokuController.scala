@@ -27,12 +27,12 @@ class SudokuController @Inject()(cc: ControllerComponents) extends AbstractContr
   //val gameController = Sudoku.controller
   //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
 
-  def sudoku = Action {
-    Ok(tui.printTui())
-  }
+  //def sudoku = Action {
+    //Ok(tui.printTui())
+  //}
 
-  def newGrid = Action {
+  //def newGrid = Action {
     //gameController.createNewGrid
-    Ok(tui.printTui())
-  }
+    //Ok(tui.printTui())
+  //}
 }

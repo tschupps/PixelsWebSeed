@@ -4,13 +4,24 @@
  *@
 @(message: String)
 
-@*
- * Call the `main` template with two arguments. The first
- * argument is a `String` with the title of the page, the second
- * argument is an `Html` object containing the body of the page.
- *@
 @main("Welcome to Play") {
+    <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/hello.js")'></script>
 
-<h1>Welcome 2 Pixels</h1>
+    <h1>Welcome 2 Pixels</h1>
+
+    <p>@message</p>
+    <p>
+        <button class="Game1" type="button">Game 1</button>
+        <button class="Game2" type="button">Game 2</button>
+        <button class="Game3" type="button">Game 3</button>
+        <button class="save" type="button">save</button>
+        <button class="load" type="button">load</button>
+        <button class="help" type="button">help</button>
+    </p>
+
+
+
 
 }

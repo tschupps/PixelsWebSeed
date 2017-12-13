@@ -25,15 +25,15 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
   //val gameController = Sudoku.controller
   //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
 
-  def sudoku = Action {
-    Ok(tui.printTui())
+  def pixel = Action {
+    Ok(views.html.index("Please select a game"))
+    //Ok("Please select a game")
   }
 
   def game = Action {
     Ok(views.html.pixels(pixels))
   }
   def help = Action {
-
     //gameController.createNewGrid
     Ok(views.html.welcome("welcomeTest"))
   }
