@@ -1,8 +1,8 @@
+
+importPackage(de.htwg.se.pixels.controller.Controller);
 var color = "black";
 
-if (window.console) {
-  console.log("Welcome to your Play application's JavaScript!");
-}
+Controller.colourCell(row, col, color)
 $(document).ready(function () {
 $(".cell").on("click", function() {
     $(this).css("background", color);
