@@ -1,32 +1,13 @@
-@(message: String, style: String = "scala") 
+@(message: String)
 
-@defining(play.core.PlayVersion.current) { version =>
+@main("Help") {
 
-<section id="top">
-  <div class="wrapper">
-      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
-  </div>
-</section>
+    <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type='text/javascript' src='@routes.Assets.versioned("javascripts/hello.js")'></script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">HTWG Pixels</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <h1>@message</h1>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Play <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<div id="content" class="wrapper doc">
-<article>
-
-    <h1>Welcome to Pixels</h1>
     <p>
         Nonograms, also known as Picross or Griddlers, are picture logic puzzles
         in which cells in a grid must be colored or left blank according to numbers
@@ -50,10 +31,4 @@
         Nonograms have no theoretical limits on size, and are not restricted to square layouts.
     </p>
 
-</article>
-
-
-</aside>
-
-</div>
 }

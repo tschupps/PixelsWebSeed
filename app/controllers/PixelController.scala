@@ -36,6 +36,6 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
 
   def help = Action {
     //gameController.createNewGrid
-    Ok(views.html.welcome("welcomeTest"))
+    Ok(views.html.welcome("How To Pixels"))
   }
 }
