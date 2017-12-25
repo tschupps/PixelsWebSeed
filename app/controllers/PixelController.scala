@@ -26,7 +26,7 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
   //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
 
   def pixel = Action {
-    Ok(views.html.index("Please select a game"))
+    Ok(views.html.index("Welcome to Pixels"))
     //Ok("Please select a game")
   }
 
