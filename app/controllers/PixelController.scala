@@ -15,8 +15,9 @@ import de.htwg.se.pixels.model.impl.Grid
 @Singleton
 class PixelController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  val grid = new Grid(5,5)
-  val pixels = Controller(grid,grid)
+  val userGrid = new Grid(1,1)
+  val sysGrid = new Grid(1,1)
+  val pixels = Controller(userGrid,sysGrid)
 
   val tui = new Tui(pixels)
   val gui = new Gui(pixels)

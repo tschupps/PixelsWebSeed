@@ -1,6 +1,5 @@
 @(controller:de.htwg.se.pixels.controller.Controller, gameNumber: Int)
 
-
 @newGame() = @{
     controller.createGrid(gameNumber)
 }
@@ -19,12 +18,12 @@
   row + "" + col
 }
 
-@getColLabel() = @{
-    val colLabels = controller.gridUser.getColLabels()
-}
+@getLabels() = @{
+    val colLabels = new ColLabels(controller.gridSys.getCol)
+    colLabels.setAllColLabels(CreateLabels(pixels.gridSys).getColLabels())
 
-@getRowLabel() = @{
-    val rowLabels = controller.gridUser.getRowLabels()
+    val rowLabels = new RowLabels(pixels.gridSys.getRow)
+    rowLabels.setAllRowLabels(CreateLabels(pixels.gridSys).getRowLabels())
 }
 
 @main("HTWG Sudoku") {
@@ -38,6 +37,10 @@
   <button class="whiteButton" type="button">   </button>
   <button class="blueButton" type="button">   </button>
   <button class="greenButton" type="button">  </button>
+
+  <p>@getLabels()</p>
+
+
   <div class="game">
     <div class="grid" id=size@{getRow()}>
       @newGame()
@@ -55,7 +58,7 @@
 
     <p>@gameNumber</p>
 
-    <p>@getColLabel()</p>
+    <p>@</p>
     <p>@getRowLabel()</p>
 
 }
