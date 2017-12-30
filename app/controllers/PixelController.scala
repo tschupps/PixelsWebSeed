@@ -39,4 +39,11 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
     //gameController.createNewGrid
     Ok(views.html.welcome("How To Pixels"))
   }
+
+  def colorCell(id: String, color: String) = Action{
+    val row = id.charAt(0).toInt - 48 + 1
+    val col = id.charAt(1).toInt - 48 + 1
+    pixels.colourCell(row, col, color)
+    Ok("test")
+  }
 }

@@ -14,16 +14,17 @@
   cols
 }
 
+
 @getCellBorderId(row:Int, col:Int) =@{
   row + "" + col
 }
 
 @getLabels() = @{
-    val colLabels = new ColLabels(controller.gridSys.getCol)
-    colLabels.setAllColLabels(CreateLabels(pixels.gridSys).getColLabels())
+    //val colLabels = new ColLabels(controller.gridSys.getCol)
+    //colLabels.setAllColLabels(CreateLabels(pixels.gridSys).getColLabels())
 
-    val rowLabels = new RowLabels(pixels.gridSys.getRow)
-    rowLabels.setAllRowLabels(CreateLabels(pixels.gridSys).getRowLabels())
+    //val rowLabels = new RowLabels(pixels.gridSys.getRow)
+    //rowLabels.setAllRowLabels(CreateLabels(pixels.gridSys).getRowLabels())
 }
 
 @main("HTWG Sudoku") {
@@ -57,8 +58,5 @@
   </div>
 
     <p>@gameNumber</p>
-
-    <p>@</p>
-    <p>@getRowLabel()</p>
 
 }
