@@ -1,0 +1,2 @@
+- Tipp
+    hello.js Zeile 53 sollte eigentlich eine Nachricht (Right, Wrong, oder Test) zurückgeben, gibt aber null bzw. undefined zurück
