@@ -1,6 +1,7 @@
 package controllers
 
 import javax.inject._
+import play.api.libs.streams.ActorFlow
 
 import play.api.mvc._
 //import de.htwg.se.sudoku.Sudoku
@@ -54,5 +55,12 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
       Ok("Right")
     else
       Ok("Wrong")
+  }
+
+  def socket = WebSocket.accept[String, String] { request =>
+    ActorFlow.actorRef { out =>
+      println("Connect received")
+      PixelsWebSocketActorFactory.create(out)
+    }
   }
 }

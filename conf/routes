@@ -9,6 +9,7 @@ GET     /help                       controllers.PixelController.help
 GET     /game/$id<[0-4]>            controllers.PixelController.game(id: Int)
 GET     /colorCell/:id/:color       controllers.PixelController.colorCell(id : String, color: String)
 GET     /getTip/:id                 controllers.PixelController.getTip(id : String)
+GET     /webSocket                  controllers.PixelController.socket
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
