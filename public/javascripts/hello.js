@@ -1,6 +1,7 @@
 var color = "black"
 var colorForController = "s"
 var game = 1
+var tip = false
 
 if (window.console) {
   console.log("Welcome to your Play application's JavaScript!");
@@ -24,22 +25,31 @@ $(document).ready(function () {
     });
 
     $(".cell").on("click", function() {
-        $(this).css("background", color);
-        colorCell(this.id);
+        if (tip) {
+            getTip(this.id)
+            tip = false
+        } else {
+            $(this).css("background", color);
+            colorCell(this.id)
+        }
     });
 
+    $(".tip").on("click", function() {
+        tip = true
+    });
+
+    function getTip(id) {
+       alert(ajaxCall("/getTip/" + id))
+    }
     function colorCell(id) {
-        console.log("da");
+        ajaxCall("/colorCell/"+id+"/"+colorForController)
+    }
+
+    function ajaxCall(url){
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                console.log("id");
-            }
-        };
-        console.log("test")
-        console.log(xhttp)
-        xhttp.open("GET", "/colorCell/"+id+"/"+colorForController, true);
+        xhttp.open("GET", url, true);
         xhttp.send();
+        return xhttp.responseText;
     }
 
     $(".yellowButton").on("click", function() {

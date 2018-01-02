@@ -46,4 +46,13 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
     pixels.colourCell(row, col, color)
     Ok("test")
   }
+
+  def getTip(id: String) = Action{
+    val row = id.charAt(0).toInt - 48 + 1
+    val col = id.charAt(1).toInt - 48 + 1
+    if(pixels.tip(row, col))
+      Ok("Right")
+    else
+      Ok("Wrong")
+  }
 }
