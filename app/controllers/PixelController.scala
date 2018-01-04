@@ -1,8 +1,9 @@
 package controllers
 
 import javax.inject._
-import play.api.libs.streams.ActorFlow
 
+import de.htwg.se.pixels.util.Observer
+import play.api.libs.streams.ActorFlow
 import play.api.mvc._
 //import de.htwg.se.sudoku.Sudoku
 //import de.htwg.se.sudoku.controller.controllerComponent.GameStatus
@@ -14,7 +15,7 @@ import de.htwg.se.pixels.model.impl.Grid
 
 
 @Singleton
-class PixelController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class PixelController @Inject()(cc: ControllerComponents) extends AbstractController(cc) with Observer {
 
   val userGrid = new Grid(1,1)
   val sysGrid = new Grid(1,1)
@@ -23,6 +24,9 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
   val tui = new Tui(pixels)
   val gui = new Gui(pixels)
   gui.visible = true
+
+  var newState = pixels.gridUser
+
 
   //val gameController = Sudoku.controller
   //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
@@ -57,10 +61,26 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
       Ok("Wrong")
   }
 
+  pixels.addObserver(this)
+  def update() = {
+    socket
+    //newState = pixels.getState
+    //refreshGrid()
+  }
+
+  def refreshGrid()= {
+    for(r <- 0 until pixels.gridSys.getRow){
+      for(c<-0 until pixels.gridSys.getCol){
+        val newR = r+1
+        val newC = c+1
+        colorCell(newR.toString + newC.toString, newState.getValue(r+1,c+1).value.toString)
+      }
+    }
+  }
+
   def socket = WebSocket.accept[String, String] { request =>
     ActorFlow.actorRef { out =>
-      println("Connect received")
-      PixelsWebSocketActorFactory.create(out)
+      PixelsWebSocketActorFactory.props(out)
     }
   }
 }

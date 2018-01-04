@@ -84,4 +84,12 @@ $(document).ready(function () {
         colorForController = "b"
 
     });
+
+    var socket = new WebSocket("ws://localhost:9000/webSocket");
+    socket.onmessage = function(message){
+        switch (message.toString().charAt(0)) {
+            case "0":
+                break;
+        }
+    }
 });
