@@ -1,2 +1,8 @@
 - Tipp
     hello.js Zeile 53 sollte eigentlich eine Nachricht (Right, Wrong, oder Test) zurückgeben, gibt aber null bzw. undefined zurück
+
+- Websocket
+    Klasse PixelsWebSocketActor gameController--> woher bekomme ich den?
+
+- Authentication
+    bestehendes Project in Seed oder Seed in bestehendes Projekt?
