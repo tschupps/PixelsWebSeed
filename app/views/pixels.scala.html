@@ -1,4 +1,4 @@
-@(controller:de.htwg.se.pixels.controller.Controller, gameNumber: Int)
+@(controller: de.htwg.se.pixels.controller.Controller, gameNumber: Int)
 
 @newGame() = @{
     controller.createGrid(gameNumber)
@@ -10,13 +10,12 @@
 }
 
 @getCol() = @{
-  val cols = controller.gridUser.getCol
-  cols
+    val cols = controller.gridUser.getCol
+    cols
 }
 
-
-@getCellBorderId(row:Int, col:Int) =@{
-  row + "" + col
+@getCellBorderId(row: Int, col: Int) = @{
+    row + "" + col
 }
 
 @getLabels() = @{
@@ -28,34 +27,46 @@
 }
 
 @main("HTWG Sudoku") {
-  <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script type='text/javascript' src='@routes.Assets.versioned("javascripts/hello.js")'></script>
+    <link rel="stylesheet" href='@routes.Assets.versioned("stylesheets/main.css")' />
 
-  <button class="yellowButton" type="button">   </button>
-  <button class="redButton" type="button">   </button>
-  <button class="blackButton" type="button">   </button>
-  <button class="whiteButton" type="button">   </button>
-  <button class="blueButton" type="button">   </button>
-  <button class="greenButton" type="button">  </button>
+    <div id="el"></div>
 
-  <p>@getLabels()</p>
+        <!-- using string template here to work around HTML <option> placement restriction -->
+    <script type="text/x-template" id="demo-template">
+        <div>
 
+            <select2 :options="options" v-model="selected">
+                <option disabled value="0">Select one</option>
+            </select2>
+        </div>
+    </script>
 
-  <div class="game">
-    <div class="grid" id=size@{getRow()}>
-      @newGame()
-    @for(row <- 1 until getRow()+1){
-      @for(col <- 1 until getCol()+1){
-          <div class="cell" id="@{getCellBorderId(row-1, col-1)}"></div>
-        @if(col%getCol()==0){
-          <br>
-        }
-      }
-    }
+    <script type="text/x-template" id="select2-template">
+        <select>
+            <slot></slot>
+        </select>
+    </script>
 
+    <p>@getLabels()</p>
+
+    <div class="game">
+        <div class="grid" id=size@{
+            getRow()
+        }>
+            @newGame()
+            @for(row <- 1 until getRow() + 1) {
+                @for(col <- 1 until getCol() + 1) {
+                    <div class="cell" id="@{
+                        getCellBorderId(row - 1, col - 1)
+                    }"></div>
+                    @if(col % getCol() == 0) {
+                        <br>
+                        }
+                }
+            }
+
+        </div>
     </div>
-  </div>
 
     <button class="tip" type="button"> Tip </button>
 }

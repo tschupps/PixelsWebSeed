@@ -23,6 +23,10 @@ p{font-size: 1em; font-family: Arial}
     text-align: center;
 }
 
+select {
+    min-width: 300px;
+}
+
 .yellowButton{
     background-color: yellow;
     width: 5em;

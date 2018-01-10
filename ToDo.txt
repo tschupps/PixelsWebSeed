@@ -1,2 +1,12 @@
 - Tipp
     hello.js Zeile 53 sollte eigentlich eine Nachricht (Right, Wrong, oder Test) zurückgeben, gibt aber null bzw. undefined zurück
+    Auslesen der Nachricht funktioniert, in der callback Function muss nun aber eine function aufgerufen werden wegen asynchronität
+
+- Authentication
+    bestehendes Project in Seed oder Seed in bestehendes Projekt?
+
+- vue:
+    https://vuejs.org/v2/examples/select2.html
+
+- labels:
+    wie komme ich an die colLabels ohne import oder parameter nutzen zu können?
