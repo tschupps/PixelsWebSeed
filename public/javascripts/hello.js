@@ -45,11 +45,16 @@ $(document).ready(function () {
         ajaxCall("/colorCell/"+id+"/"+colorForController)
     }
 
+
     function ajaxCall(url){
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", url, true);
+        xhttp.onload = function (e) {
+            console.log(e.currentTarget.responseText);
+            // hier function call mit dem Ergebnis
+            return e.currentTarget.responseText;
+        }
         xhttp.send();
-        return xhttp.responseText;
     }
 
     $(".yellowButton").on("click", function() {
