@@ -118,10 +118,14 @@ $(document).ready(function () {
         xhttp.open("GET", url, true);
         xhttp.onload = function (e) {
             console.log(e.currentTarget.responseText);
+            if(tip == true){
+                alert(e.currentTarget.responseText);
+                tip = false;
+            }
         };
         xhttp.send();
     }
-    
+
 
     var socket = new WebSocket("ws://localhost:9000/webSocket");
     setInterval(function(){socket.send("ping"); }, 3000);
