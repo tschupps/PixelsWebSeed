@@ -45,6 +45,13 @@ $(document).ready(function () {
         ajaxCall("/colorCell/"+id+"/"+colorForController)
     }
 
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+
 
     function ajaxCall(url){
         var xhttp = new XMLHttpRequest();
