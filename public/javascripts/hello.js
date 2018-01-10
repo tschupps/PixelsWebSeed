@@ -8,7 +8,6 @@ $(document).ready(function () {
     $(".cell").on("click", function() {
         if (tip) {
             getTip(this.id);
-            tip = false;
         } else {
             $(this).css("background", color);
             colorCell(this.id);
@@ -20,7 +19,7 @@ $(document).ready(function () {
     });
 
     function getTip(id) {
-       alert(ajaxCall("/getTip/" + id))
+       ajaxCall("/getTip/" + id)
     }
     function colorCell(id) {
         ajaxCall("/colorCell/"+id+"/"+colorForController)
@@ -50,27 +49,21 @@ $(document).ready(function () {
         }
     }
 
-    function ajaxCall(url){
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", url, true);
-        xhttp.send();
-        return xhttp.responseText;
-    }
-
     $(".yellowButton").on("click", function() {
-        color = "yellow"
-        colorForController = "y"
+        color = "yellow";
+        colorForController = "y";
     });
 
     $(".redButton").on("click", function() {
-        color = "red"
-        colorForController = "r"
+        color = "red";
+        colorForController = "r";
 
     });
 
     $(".blackButton").on("click", function() {
-        color = "black"
-        colorForController = "s"
+        color = "black";
+        colorForController = "s";
+    });
 
     Vue.component('select2', {
         props: ['options', 'value'],
@@ -125,25 +118,24 @@ $(document).ready(function () {
         xhttp.open("GET", url, true);
         xhttp.onload = function (e) {
             console.log(e.currentTarget.responseText);
-            // hier function call mit dem Ergebnis
-
         };
         xhttp.send();
     }
-
-
-    });
+    
 
     var socket = new WebSocket("ws://localhost:9000/webSocket");
     setInterval(function(){socket.send("ping"); }, 3000);
-    socket.onmessage = function(message){
-        var msg = JSON.parse(message.data)
+    socket.onmessage = function(message) {
+        var msg = JSON.parse(message.data);
         for (var key in msg.cells) {
             if (msg.cells.hasOwnProperty(key)) {
                 var val = msg.cells[key];
                 console.log(key);
                 colorCell(key, getColor(val))
             }
+        }
+    };
+
     function changeColor(choice){
         switch(choice) {
             case "1":
