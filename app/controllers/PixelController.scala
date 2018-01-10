@@ -2,20 +2,22 @@ package controllers
 
 import javax.inject._
 
+import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import de.htwg.se.pixels.util.Observer
 import play.api.libs.streams.ActorFlow
 import play.api.mvc._
-//import de.htwg.se.sudoku.Sudoku
-//import de.htwg.se.sudoku.controller.controllerComponent.GameStatus
-
+import akka.stream.Materializer
 import de.htwg.se.pixels.aview.gui.Gui
 import de.htwg.se.pixels.aview.tui.Tui
 import de.htwg.se.pixels.controller.Controller
+import de.htwg.se.pixels.model.IGrid
 import de.htwg.se.pixels.model.impl.Grid
+
+import scala.swing.Reactor
 
 
 @Singleton
-class PixelController @Inject()(cc: ControllerComponents) extends AbstractController(cc) with Observer {
+class PixelController @Inject()(cc: ControllerComponents)(implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc){
 
   val userGrid = new Grid(1,1)
   val sysGrid = new Grid(1,1)
@@ -61,26 +63,49 @@ class PixelController @Inject()(cc: ControllerComponents) extends AbstractContro
       Ok("Wrong")
   }
 
-  pixels.addObserver(this)
-  def update() = {
-    socket
-    //newState = pixels.getState
-    //refreshGrid()
+  object PixelsWebSocketActorFactory {
+    def create(out: ActorRef) = {
+      Props(new PixelsWebSocketActor(out))
+    }
   }
 
-  def refreshGrid()= {
-    for(r <- 0 until pixels.gridSys.getRow){
-      for(c<-0 until pixels.gridSys.getCol){
-        val newR = r+1
-        val newC = c+1
-        colorCell(newR.toString + newC.toString, newState.getValue(r+1,c+1).value.toString)
+  class PixelsWebSocketActor(out: ActorRef) extends Actor with Observer{
+    pixels.addObserver(this)
+    def update() = {
+      newState = pixels.getState
+      out ! (toJson(newState))
+    }
+
+    def receive = {
+      case msg: String => println("not used")
+    }
+  }
+
+  def toJson(grid: IGrid) = {
+    println(grid.getCol)
+    println(grid.getRow)
+    var json = "{\"cells\":{\n"
+    for(r <- 0 until grid.getRow){
+      for(c<-0 until grid.getCol) {
+        json = json + ("\"")
+        json = json +(r.toString)
+        json = json +(c.toString)
+        json = json +("\":")
+        json = json +("\"" + grid.getValue(r + 1, c + 1).value.toString + "\"")
+        if(r < grid.getRow-1 || c < grid.getCol-1) {
+          json = json + ","
+        }
+        json = json + ("\n")
       }
     }
+    json = json +("}\n")
+    json = json +("}\n")
+    json
   }
 
   def socket = WebSocket.accept[String, String] { request =>
     ActorFlow.actorRef { out =>
-      PixelsWebSocketActorFactory.props(out)
+      PixelsWebSocketActorFactory.create(out)
     }
   }
 }

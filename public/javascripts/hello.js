@@ -45,6 +45,29 @@ $(document).ready(function () {
         ajaxCall("/colorCell/"+id+"/"+colorForController)
     }
 
+    function colorCell(id, color) {
+        console.log(id)
+        console.log(color)
+        document.getElementById(id).style.backgroundColor = color;
+    }
+
+    function getColor(color) {
+        switch(color) {
+            case "red":
+                return "red";
+            case "gre":
+                return "green";
+            case "blu":
+                return "blue";
+            case "yel":
+                return "yellow";
+            case "bla":
+                return "black";
+            case "emp":
+                return "white";
+        }
+    }
+
     function ajaxCall(url){
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", url, true);
@@ -86,10 +109,15 @@ $(document).ready(function () {
     });
 
     var socket = new WebSocket("ws://localhost:9000/webSocket");
+    setInterval(function(){socket.send("ping"); }, 3000);
     socket.onmessage = function(message){
-        switch (message.toString().charAt(0)) {
-            case "0":
-                break;
+        var msg = JSON.parse(message.data)
+        for (var key in msg.cells) {
+            if (msg.cells.hasOwnProperty(key)) {
+                var val = msg.cells[key];
+                console.log(key);
+                colorCell(key, getColor(val))
+            }
         }
     }
 });
