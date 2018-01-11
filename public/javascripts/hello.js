@@ -10,7 +10,7 @@ $(document).ready(function () {
             getTip(this.id);
         } else {
             $(this).css("background", color);
-            colorCell(this.id);
+            colorCellInController(this.id);
         }
     });
 
@@ -21,14 +21,12 @@ $(document).ready(function () {
     function getTip(id) {
        ajaxCall("/getTip/" + id)
     }
-    function colorCell(id) {
+    function colorCellInController(id) {
         ajaxCall("/colorCell/"+id+"/"+colorForController)
     }
 
 
     function colorCell(id, color) {
-        console.log(id)
-        console.log(color)
         document.getElementById(id).style.backgroundColor = color;
     }
 
@@ -117,7 +115,6 @@ $(document).ready(function () {
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", url, true);
         xhttp.onload = function (e) {
-            console.log(e.currentTarget.responseText);
             if(tip == true){
                 alert(e.currentTarget.responseText);
                 tip = false;
@@ -134,7 +131,6 @@ $(document).ready(function () {
         for (var key in msg.cells) {
             if (msg.cells.hasOwnProperty(key)) {
                 var val = msg.cells[key];
-                console.log(key);
                 colorCell(key, getColor(val))
             }
         }

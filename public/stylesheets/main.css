@@ -23,6 +23,15 @@ p{font-size: 1em; font-family: Arial}
     text-align: center;
 }
 
+.colLabel {
+    display: inline-block;
+    float:left;
+    width: 1.2em;
+    height: 1.2em;
+    margin:0.1em;
+    text-align: center;
+}
+
 select {
     min-width: 300px;
 }

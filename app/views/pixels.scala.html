@@ -14,6 +14,17 @@
     cols
 }
 
+@getColLabels() = @{
+    val colLabels = controller.gridSys.getColLabels()
+    colLabels
+}
+
+@getRowLabels() = @{
+    val rowLabels = controller.gridSys.getRowLabels()
+    rowLabels
+}
+
+
 @getCellBorderId(row: Int, col: Int) = @{
     row + "" + col
 }
@@ -66,7 +77,16 @@
             }
 
         </div>
+        <div class="colLabels">
+            @for(col <- 0 until getCol()) {
+                <div class="colLabel" id="col">
+                    @getColLabels().getColLabel(col).charAt(0)
+                </div>
+            }
+        </div>
     </div>
-
+    <br>
     <button class="tip" type="button"> Tip </button>
+    @getColLabels()
+    @getRowLabels().getRowLabel(0)
 }
