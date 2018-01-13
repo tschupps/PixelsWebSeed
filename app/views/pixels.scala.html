@@ -24,6 +24,11 @@
     rowLabels
 }
 
+@getLabelColour(str: String) = @{
+    val pattern = "(?<=\\\")(.*?)(?=\\\")".r
+    pattern findFirstIn str
+}
+
 
 @getCellBorderId(row: Int, col: Int) = @{
     row + "" + col
@@ -80,13 +85,15 @@
         <div class="colLabels">
             @for(col <- 0 until getCol()) {
                 <div class="colLabel" id="col">
-                    @getColLabels().getColLabel(col).charAt(0)
+                    <b><font color=@getLabelColour(getColLabels().getColLabel(col))>@getColLabels().getColLabel(col).replaceAll("[\\D]", "")</font><br></b>
                 </div>
             }
         </div>
     </div>
     <br>
     <button class="tip" type="button"> Tip </button>
-    @getColLabels()
-    @getRowLabels().getRowLabel(0)
+
+    @getColLabels().getColLabel(0).replaceAll("<html>", "").replaceAll("</html>", "")
+    @getLabelColour(getColLabels().getColLabel(0))
+    @getRowLabels()
 }
