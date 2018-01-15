@@ -128,6 +128,8 @@ $(document).ready(function () {
             if(tip == true){
                 alert(e.currentTarget.responseText);
                 tip = false;
+            }else if(e.currentTarget.responseText == "Gewonnen"){
+                alert(e.currentTarget.responseText);
             }
         };
         xhttp.send();
@@ -142,9 +144,14 @@ $(document).ready(function () {
             if (msg.cells.hasOwnProperty(key)) {
                 var val = msg.cells[key];
                 colorCell(key, getColor(val))
+                testAll()
             }
         }
     };
+
+    function testAll() {
+        ajaxCall("/testAll");
+    }
 
     function changeColor(choice){
         switch(choice) {

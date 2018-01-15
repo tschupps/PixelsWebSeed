@@ -66,10 +66,8 @@
     <button class="tip" type="button"> Tip </button>
     <button class="undo" type="button">Undo</button>
 
-    <div class="game">
-        <div class="grid" id=size@{
-            getRow()
-        }>
+    <div class="game" id="game">
+        <div class="grid" id=grid>
             @newGame()
             @for(row <- 1 until getRow() + 1) {
                 @for(col <- 1 until getCol() + 1) {

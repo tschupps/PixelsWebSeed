@@ -9,6 +9,7 @@ GET     /game/$id<[0-4]>            controllers.PixelController.game(id: Int)
 GET     /colorCell/:id/:color       controllers.PixelController.colorCell(id : String, color: String)
 GET     /getTip/:id                 controllers.PixelController.getTip(id : String)
 GET     /undo                       controllers.PixelController.undo
+GET     /testAll                    controllers.PixelController.testAll
 GET     /webSocket                  controllers.PixelController.socket
 
 # Map static resources from the /public folder to the /assets URL path

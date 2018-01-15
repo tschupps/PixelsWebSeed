@@ -8,6 +8,7 @@ body{background-color: lavender; margin: 2em}
     width: auto;
     max-width: 800px;
 }
+
 .cell {
     display: inline-block;
     float:left;

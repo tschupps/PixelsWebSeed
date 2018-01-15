@@ -68,6 +68,13 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
     Ok("undo")
   }
 
+  def testAll() = Action{
+    if(pixels.testAll())
+      Ok("Gewonnen")
+    else
+      Ok("not finished yet")
+  }
+
   object PixelsWebSocketActorFactory {
     def create(out: ActorRef) = {
       Props(new PixelsWebSocketActor(out))
