@@ -4,18 +4,12 @@
 
 # Controller for Pixels
 GET     /                           controllers.PixelController.pixel
-# GET     /new                        controllers.PixelController.newGrid
 GET     /help                       controllers.PixelController.help
 GET     /game/$id<[0-4]>            controllers.PixelController.game(id: Int)
 GET     /colorCell/:id/:color       controllers.PixelController.colorCell(id : String, color: String)
 GET     /getTip/:id                 controllers.PixelController.getTip(id : String)
 GET     /undo                       controllers.PixelController.undo
 GET     /webSocket                  controllers.PixelController.socket
-
-# An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
