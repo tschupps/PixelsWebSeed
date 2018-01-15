@@ -34,7 +34,7 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
   //def tui =  gameController.gridToString + GameStatus.message(gameController.gameStatus)
 
   def pixel = Action {
-    Ok(views.html.index("Welcome to Pixels"))
+    Ok(views.html.index("Pixels."))
     //Ok("Please select a game")
   }
 

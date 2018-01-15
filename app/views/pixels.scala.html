@@ -83,14 +83,13 @@
                         }
                 }
             }
-
-        </div>
-        <div class="colLabels">
+            <div class="colLabels">
             @for(col <- 0 until getCol()) {
                 <div class="colLabel" id=@col>
-                    @Html(getColLabels().getColLabel(col).replaceAll("<html>", "").replaceAll("</html>", ""))
+                @Html(getColLabels().getColLabel(col).replaceAll("<html>", "").replaceAll("</html>", ""))
                 </div>
             }
+            </div>
         </div>
     </div>
 }

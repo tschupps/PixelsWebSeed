@@ -14,11 +14,13 @@ $(document).ready(function () {
         }
     });
 
-    $(".tip").on("click", function() {
+    $("#tip").on("click", function() {
+        console.log("tip");
         tip = true;
     });
 
-    $(".undo").on("click", function() {
+    $("#undo").on("click", function() {
+        console.log("undo");
         undo();
     });
 

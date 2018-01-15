@@ -1,7 +1,5 @@
 body{background-color: lavender; margin: 2em}
-h1{ border-left: 6px solid deepskyblue;
-    background-color: lightblue;}
-p{font-size: 1em; font-family: Arial}
+
 .one{
     background-color: blue;
     border-color: black;
@@ -36,43 +34,74 @@ select {
     min-width: 300px;
 }
 
-.yellowButton{
-    background-color: yellow;
-    width: 5em;
-    height: 2em;
+
+/*Buttons*/
+.tip {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 28em;
+    -moz-border-radius: 28em;
+    border-radius: 28px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 3px 8px 3px 8px;
+    text-decoration: none;
 }
 
-.redButton{
-    background-color: red;
-    width: 5em;
-    height: 2em;
+.tip:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
 }
 
-.blackButton{
-    background-color: black;
-    width: 5em;
-    height: 2em;
+.undo {
+    background: #3498db;
+    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+    background-image: -o-linear-gradient(top, #3498db, #2980b9);
+    background-image: linear-gradient(to bottom, #3498db, #2980b9);
+    -webkit-border-radius: 28em;
+    -moz-border-radius: 28em;
+    border-radius: 28px;
+    text-shadow: 1px 1px 3px #666666;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 3px 8px 3px 8px;
+    text-decoration: none;
 }
 
-.blueButton{
-    background-color: blue;
-    width: 5em;
-    height: 2em;
+.undo:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
 }
 
-.greenButton{
-    background-color: green;
-    width: 5em;
-    height: 2em;
-}
+/* heading*/
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
 
-.whiteButton{
-    background-color: white;
-    width: 5em;
-    height: 2em;
-}
+h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
 
+p { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
 
+ol { color: #685206; font-family: 'Helvetica Neue', sans-serif; font-size: 14px; line-height: 24px; margin: 0 0 24px; text-align: justify; text-justify: inter-word; }
+
+div#wiki1, div#wiki2 { float: left; width: 45%; padding-left: 5em; padding-right: 5em; }
 
 
 

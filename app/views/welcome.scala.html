@@ -9,26 +9,16 @@
     <h1>@message</h1>
 
     <p>
-        Nonograms, also known as Picross or Griddlers, are picture logic puzzles
-        in which cells in a grid must be colored or left blank according to numbers
-        at the side of the grid to reveal a hidden picture. In this puzzle type, the
-        numbers are a form of discrete tomography that measures how many unbroken
-        lines of filled-in squares there are in any given row or column. For example,
-        a clue of "4 8 3" would mean there are sets of four, eight, and three filled
-        squares, in that order, with at least one blank square between successive groups.
-    </p>
+        Solution of colour crosswords is a bit different from solution of black and white ones (as in black and white crosswords you don’t need to take into account the colour of the squares, the rules are a bit simpler) – that’s why so far we will talk only about black and white crosswords.
 
+        To solve a Japanese crossword a person should look at each line/column separately, always moving to the next columns and lines. In so doing the process of solving in each line/column comes to the following:
+    </p>
+    <ol>
+        <li>To define the squares which are sure to be painted (with any possible location of the groups) – so we paint them.</li>
+        <li>To define the squares in which it is impossible to have painted squares – such squares are marked with a cross (sometimes a bullet point is used instead of a cross).</li>
+        <li>To define the numbers, which location is already identified – usually these numbers are crossed out.</li>
+    </ol>
     <p>
-        These puzzles are often black and white, describing a binary image, but they can
-        also be colored. If colored, the number clues are also colored to indicate the
-        color of the squares. Two differently colored numbers may or may not have a space
-        in between them. For example, a black four followed by a red two could mean four
-        black boxes, some empty spaces, and two red boxes, or it could simply mean four
-        black boxes followed immediately by two red ones.
+        Thus, gradually there are marks in the field which help to identify new marks step by step, then more and more marks until finally the crossword is completely solved (it should be noted that if even only one mark is put incorrectly – it may lead to a deadlock solution).
     </p>
-
-    <p>
-        Nonograms have no theoretical limits on size, and are not restricted to square layouts.
-    </p>
-
 }
