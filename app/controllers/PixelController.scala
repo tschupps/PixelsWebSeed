@@ -63,6 +63,11 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
       Ok("Wrong")
   }
 
+  def undo() = Action{
+    pixels.undo
+    Ok("undo")
+  }
+
   object PixelsWebSocketActorFactory {
     def create(out: ActorRef) = {
       Props(new PixelsWebSocketActor(out))

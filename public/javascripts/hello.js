@@ -15,11 +15,19 @@ $(document).ready(function () {
     });
 
     $(".tip").on("click", function() {
-        tip = true
+        tip = true;
+    });
+
+    $(".undo").on("click", function() {
+        undo();
     });
 
     function getTip(id) {
-       ajaxCall("/getTip/" + id)
+       ajaxCall("/getTip/" + id);
+    }
+
+    function undo(){
+        ajaxCall("/undo");
     }
     function colorCellInController(id) {
         ajaxCall("/colorCell/"+id+"/"+colorForController)

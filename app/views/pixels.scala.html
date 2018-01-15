@@ -63,7 +63,8 @@
         </select>
     </script>
 
-    <p>@getLabels()</p>
+    <button class="tip" type="button"> Tip </button>
+    <button class="undo" type="button">Undo</button>
 
     <div class="game">
         <div class="grid" id=size@{
@@ -76,7 +77,9 @@
                         getCellBorderId(row - 1, col - 1)
                     }"></div>
                     @if(col % getCol() == 0) {
-                        <br>
+                        <div class="rowLabel" id=@row>
+                            @Html(getRowLabels().getRowLabelGui(row-1).replaceAll("<html>", "").replaceAll("</html>", ""))
+                        </div>
                         }
                 }
             }
@@ -84,16 +87,10 @@
         </div>
         <div class="colLabels">
             @for(col <- 0 until getCol()) {
-                <div class="colLabel" id="col">
-                    <b><font color=@getLabelColour(getColLabels().getColLabel(col))>@getColLabels().getColLabel(col).replaceAll("[\\D]", "")</font><br></b>
+                <div class="colLabel" id=@col>
+                    @Html(getColLabels().getColLabel(col).replaceAll("<html>", "").replaceAll("</html>", ""))
                 </div>
             }
         </div>
     </div>
-    <br>
-    <button class="tip" type="button"> Tip </button>
-
-    @getColLabels().getColLabel(0).replaceAll("<html>", "").replaceAll("</html>", "")
-    @getLabelColour(getColLabels().getColLabel(0))
-    @getRowLabels()
 }
