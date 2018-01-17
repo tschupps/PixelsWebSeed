@@ -42,6 +42,10 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
     Ok(views.html.pixels(pixels, number))
   }
 
+  def index() = Action {
+    Ok(views.html.index2())
+  }
+
   def help = Action {
     //gameController.createNewGrid
     Ok(views.html.welcome("How To Pixels"))
