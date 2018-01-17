@@ -136,7 +136,7 @@ $(document).ready(function () {
     }
 
 
-    var socket = new WebSocket("ws://localhost:9000/webSocket");
+    var socket = new WebSocket("ws://" + window.location.host + "/webSocket");
     setInterval(function(){socket.send("ping"); }, 3000);
     socket.onmessage = function(message) {
         var msg = JSON.parse(message.data);

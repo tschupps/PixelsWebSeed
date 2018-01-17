@@ -23,9 +23,9 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
   val sysGrid = new Grid(1,1)
   val pixels = Controller(userGrid,sysGrid)
 
-  val tui = new Tui(pixels)
-  val gui = new Gui(pixels)
-  gui.visible = true
+  //val tui = new Tui(pixels)
+  //val gui = new Gui(pixels)
+  //gui.visible = true
 
   var newState = pixels.gridUser
 
