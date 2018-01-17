@@ -14,12 +14,12 @@ $(document).ready(function () {
         }
     });
 
-    $("#tip").on("click", function() {
+    $(".tip").on("click", function() {
         console.log("tip");
         tip = true;
     });
 
-    $("#undo").on("click", function() {
+    $(".undo").on("click", function() {
         console.log("undo");
         undo();
     });
@@ -136,7 +136,7 @@ $(document).ready(function () {
     }
 
 
-    var socket = new WebSocket("ws://localhost:9000/webSocket");
+    var socket = new WebSocket("ws://" + window.location.host + "/webSocket");
     setInterval(function(){socket.send("ping"); }, 3000);
     socket.onmessage = function(message) {
         var msg = JSON.parse(message.data);
