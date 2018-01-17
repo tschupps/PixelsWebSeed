@@ -13,6 +13,14 @@
  
 - Tip?
 
-- Labels grad alle schwarz?
++- hello.js umbenennen
+  		  
 
-- 'gewonnen' Nachricht und dann? Neustart?
+ +- CSS Grid?
+ +
+ +- Heroku Umgebungsvariablen setzen um SSO zu unterstuetzen?
+ +
+ +- Aenderung im SE Projekt erwaehnen in Praesi?
+ +
+ +- Unsecured actions fuer help und home?
+ +- Secured fuer tatsaechliches Spiel
