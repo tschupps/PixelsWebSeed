@@ -1,0 +1,34 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-checkbox/paper-checkbox.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<dom-module id="demo-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class DemoApp extends Polymer.Element {
+      static get is() { return 'demo-app'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'demo-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(DemoApp.is, DemoApp);
+  </script>
+</dom-module>
