@@ -89,7 +89,7 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
     }
 
     def receive = {
-      case msg: String => println("not used")
+      case msg: String => println("ping")
     }
   }
 

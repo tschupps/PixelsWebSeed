@@ -77,7 +77,7 @@
     </div>
 
     <div class="game" id="game">
-        <div class="grid" id=grid>
+        <div class="grid" id="grid" size="@getRow()|@getCol()">
             @newGame()
             @for(row <- 1 until getRow() + 1) {
                 <div>

@@ -29,24 +29,28 @@ body{background-color: lavender; margin: 2em}
     float: left;
 }
 
+.rowLabel font {
+    display: inline-block;
+    margin-left: 0.5em;
+    margin-top: 0.8em;
+}
+
 .cell {
-    float:left;
-    border-style: outset;
-    border-width: 0.05em;
+    border-radius: 3px;
+    float: left;
     background-color: white;
-    border-color: #f6f6FF;
-    width: 1.2em;
-    height: 1.2em;
-    margin:0.1em;
+    width: 3em;
+    height: 3em;
+    margin: 0.1em;
     text-align: center;
+    cursor: pointer;
 }
 
 .colLabel {
     display: inline-block;
-    float:left;
-    width: 1.2em;
-    height: 1.2em;
-    margin:0.1em;
+    float: left;
+    width: 3em;
+    margin: 0.1em;
     text-align: center;
 }
 
