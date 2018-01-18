@@ -54,18 +54,18 @@
 
         <!-- using string template here to work around HTML <option> placement restriction -->
     <script type="text/x-template" id="demo-template">
-        <div>
+    <div>
 
-            <select2 :options="options" v-model="selected">
-                <option disabled value="0">Select one</option>
-            </select2>
-        </div>
+    <select2 :options="options" v-model="selected">
+    <option disabled value="0">Select one</option>
+    </select2>
+    </div>
     </script>
 
     <script type="text/x-template" id="select2-template">
-        <select>
-            <slot></slot>
-        </select>
+    <select>
+    <slot></slot>
+    </select>
     </script>
 
     <paper-button class="tip">Tip</paper-button>
@@ -75,16 +75,16 @@
         <div class="grid" id=grid>
             @newGame()
             @for(row <- 1 until getRow() + 1) {
+                <div>
                 @for(col <- 1 until getCol() + 1) {
                     <div class="cell" id="@{
                         getCellBorderId(row - 1, col - 1)
                     }"></div>
-                    @if(col % getCol() == 0) {
-                        <div class="rowLabel" id=@row>
-                            @Html(getRowLabels().getRowLabelGui(row-1).replaceAll("<html>", "").replaceAll("</html>", ""))
-                        </div>
-                        }
                 }
+                <div class="rowLabel" id=@row>
+                @Html(getRowLabels().getRowLabelGui(row - 1).replaceAll("<html>", "").replaceAll("</html>", ""))
+                </div>
+                </div>
             }
             <div class="colLabels">
             @for(col <- 0 until getCol()) {

@@ -9,8 +9,20 @@ body{background-color: lavender; margin: 2em}
     max-width: 800px;
 }
 
+.game {
+    display: flex;
+    justify-content: center;
+}
+
+.grid{
+
+}
+
+.rowLabel{
+    float: left;
+}
+
 .cell {
-    display: inline-block;
     float:left;
     border-style: outset;
     border-width: 0.05em;

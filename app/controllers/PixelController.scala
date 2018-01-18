@@ -94,8 +94,6 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
   }
 
   def toJson(grid: IGrid) = {
-    println(grid.getCol)
-    println(grid.getRow)
     var json = "{\"cells\":{\n"
     for(r <- 0 until grid.getRow){
       for(c<-0 until grid.getCol) {
