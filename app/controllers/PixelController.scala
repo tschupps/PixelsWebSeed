@@ -89,13 +89,11 @@ class PixelController @Inject()(cc: ControllerComponents)(implicit system: Actor
     }
 
     def receive = {
-      case msg: String => println("not used")
+      case msg: String => println("ping")
     }
   }
 
   def toJson(grid: IGrid) = {
-    println(grid.getCol)
-    println(grid.getRow)
     var json = "{\"cells\":{\n"
     for(r <- 0 until grid.getRow){
       for(c<-0 until grid.getCol) {

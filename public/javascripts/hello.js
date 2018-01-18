@@ -124,12 +124,16 @@ $(document).ready(function () {
     function ajaxCall(url){
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", url, true);
-        xhttp.onload = function (e) {
-            if(tip == true){
-                alert(e.currentTarget.responseText);
-                tip = false;
-            }else if(e.currentTarget.responseText == "Gewonnen"){
-                alert(e.currentTarget.responseText);
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                if (tip) {
+                    alert(this.responseText);
+                    tip = false;
+                } else if (this.responseText == "Gewonnen") {
+                    alert(this.responseText);
+                } else {
+                    console.log(this);
+                }
             }
         };
         xhttp.send();
