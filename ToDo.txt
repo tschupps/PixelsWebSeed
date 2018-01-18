@@ -1,26 +1,5 @@
-- Authentication
-    bestehendes Project in Seed
-    TODO:
-    routes
-        applicationController vs. PixelController
-    main.scala.html
-        bootstrap?
-
-- Deployment
-
-- Polymer
-    einrichten?
+- Google SSO button?
 
 - hello.js umbenennen
 
-- window.location.host
-
-- CSS Grid?
-
-- Heroku Umgebungsvariablen setzen um SSO zu unterstuetzen?
-
-- Aenderung im SE Projekt erwaehnen in Praesi?
-
 - Unsecured actions fuer help und home?
-- Secured fuer tatsaechliches Spiel
-
